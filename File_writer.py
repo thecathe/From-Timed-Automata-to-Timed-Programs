@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+"""File writer
+
+Takes a list of strings and writes them to a file.
+TODO:let the user define the file name to output them to
+"""
+
 from log import log
 
 def write_golang(_lines):

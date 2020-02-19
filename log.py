@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+
+"""Log
+
+this is for debugging purposes. helps me keep track of console debug messages.
+"""
 
 # -1 out a layer, 0 in a layer and 1 no change
 _log_indent = 1

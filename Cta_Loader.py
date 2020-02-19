@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+"""CTA Loader
+
+Given a list of automata notations, loads them in the data structures defined in Automata_Structures.
+TODO:keep track of multiple outward transitions
+"""
+
 from log import log
 from Automata_Structures import *
 
