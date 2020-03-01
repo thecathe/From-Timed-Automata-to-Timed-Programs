@@ -87,7 +87,7 @@ def generate_go_lang(_automata,_automata_text):
 
                 # generate random number for however many is in the outwards transition list
                 _outward_transition += '\t'*4 + '// randomally picks a valid outwards trasition\n' + '\t'*4 \
-                                       + 'switch rand.Intn(len(outwrd_transition_indexes)) {\n'
+                                       + 'switch outgoing_transition_indexes[rand.Intn(len(outwrd_transition_indexes))] {\n'
 
                 # loop through and provide a case for each possible transition
                 _transition_index_counter = 0
