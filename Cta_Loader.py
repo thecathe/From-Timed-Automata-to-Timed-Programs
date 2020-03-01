@@ -53,7 +53,7 @@ def load_automata(_automata_string):
         _automata_index = _end_clause
 
         # find all transitions in this automata
-        log('find all transitions in ' + str(_index+1), 1)
+        log('for all transitions in automata' + str(_index+1), 1)
         _start_clause           = _end_clause+1
         _transition_index       = _end_clause + seek_seq(_current_automata[_end_clause+1:],';')+1
         while _transition_index < len(_current_automata):
@@ -66,6 +66,13 @@ def load_automata(_automata_string):
             # - send/recieve
             # - condition
             # - end state
+            # check these are present
+            if '!' or '?' not in _current_transition:
+                log('Fault in: ' + _current_transition)
+                log('Does not include send/receive of data.')
+            if '(' and ')' not in _current_transition:
+                log('Fault in ' + _current_automata)
+                log('Make sure to include a condition in ().')
 
             _start_clause = seek_seq(_current_transition, ' ')
             _current_transition_start_state = _current_transition[:_start_clause]
