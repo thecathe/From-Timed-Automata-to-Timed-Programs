@@ -17,7 +17,6 @@ TODO: add multiple end states
 2. In the main loop, whilst waiting to reach the end state, I check the outward transitions for the current state I am in. To avoid issues during runtime, I record the value of x (time), at the start of each iteration. This avoids ambiguity for the rare cases where x changes whilst between checking outward transitions.
 
 3. Once an outward transition is possible, it goes about executing the transition. Any data/communications occur and the current state is updated for the next iteration. If there are multiple outward transitions, I check if they are all true. I do this incase there is any ambiguity and to avoid any bias to the generation of the transitions. If all are possible, I randomally choose which one to transition to.
-TODO: for the megaIf, i should go through and tally all outward transitions that are possible. then randomally choose from those. If there is only one possible, its 1/1.
 
 4. This all keeps happening until the end state is reached, when it terminates.
 """
