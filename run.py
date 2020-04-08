@@ -13,7 +13,7 @@ if len(sys.argv) < 2:
     # _automata_array = ['Init u0;u0 UW!int(x < 10,{x}) u1;u1 AU?string(x <= 200) u2;']
     # _automata_array = ['Init u0;u0 UW!int(x < 10,{x}) u1;u1 AU?string(x <= 200) u2;',
     #                    'Init q0;q0 MW!log(x < 2,{x}) q1;q1 WM?data(x >= 3 && x < 9) q3;q1 MW!end(9 <= x <= 15,{x}) q2;q3 MW!log(x <= 15,{x}) q1;']
-    _automata_array = ['Cta U = Init u0;u0 UW!int(x < 10,{x}) u1;u1 AU?string(x <= 200) u2;',
+    _automata_array = ['Cta U = Init u0;u0 UW!int(x < 10,{x}) u1;u1 AU?string(x <= 200) u2;u1 UW!int(x < 300) u3;',
                        'Cta Q = Init q0;q0 MW!log(x < 2,{x}) q1;q1 WM?data(x >= 3 && x < 9) q3;q1 MW!end(9 <= x <= 15,{x}) q2;q3 MW!log(x <= 15,{x}) q1;']
 
     # for report:
@@ -30,7 +30,7 @@ print('The program will run with the following arguments: \n\t' + '\n\t'.join(_a
 _automata_list = load_automata(''.join(_automata_array))
 
 # generate golang code from automata structures
-_golang_line = generate_go_lang(_automata_list,_automata_array)
+_golang_line = generate_go_lang(_automata_list)
 print('Finished generating Go code.\n\n')
 
 # write golang code to file
