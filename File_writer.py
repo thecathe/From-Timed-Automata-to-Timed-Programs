@@ -8,8 +8,8 @@ TODO:let the user define the file name to output them to
 
 from log import log
 
-def write_golang(_lines):
-    _finished_golang = open('golang_automata.go', 'w+')
-    _finished_golang.writelines(_lines)
-    _finished_golang.close()
-    log('file is written @ /golang_automata.go')
+def write_golang(program):
+    finished_golang = open('golang_automata.go', 'w+')
+    finished_golang.write(program)
+    finished_golang.close()
+    print('file is written @ /golang_automata.go')

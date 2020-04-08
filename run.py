@@ -14,8 +14,10 @@ if len(sys.argv) < 2:
     # _automata_array = ['Init u0;u0 UW!int(x < 10,{x}) u1;u1 AU?string(x <= 200) u2;']
     # _automata_array = ['Init u0;u0 UW!int(x < 10,{x}) u1;u1 AU?string(x <= 200) u2;',
     #                    'Init q0;q0 MW!log(x < 2,{x}) q1;q1 WM?data(x >= 3 && x < 9) q3;q1 MW!end(9 <= x <= 15,{x}) q2;q3 MW!log(x <= 15,{x}) q1;']
-    _automata_array = ['Cta U = Init u0;u0 UW!int(x < 10,{x}) u1;u1 AU?string(x <= 200) u2;',
-                       'Cta Q = Init q0;q0 MW!log(x < 2,{x}) q1;q1 WM?data(x >= 3 && x < 9) q3;q1 MW!end(9 <= x <= 15,{x}) q2;q3 MW!log(x <= 15,{x}) q1;']
+    # automata_array = ['Cta U = Init u0;u0 UW!int(x < 10,{x}) u1;u1 AU?string(x <= 200) u2;',
+    #                    'Cta Q = Init q0;q0 MW!log(x < 2,{x}) q1;q1 WM?data(x >= 3 && x < 9) q3;q1 MW!end(9 <= x <= 15,{x}) q2;q3 MW!log(x <= 15,{x}) q1;']
+
+    automata_array = ['Cta Q = Init q0;q0 z!a(x <= 2) q1;', 'Cta Z = Init z0;z0 q?a(x <= 2) z1;']
 
     # for report:
     # _automata_array = ['Cta A = Init a0;a0 B!2(true) a1;']
@@ -24,14 +26,14 @@ if len(sys.argv) < 2:
     # _automata_array = ['Cta A = Init a0;a0 (x = 5) a1;']
 else:
     print('will run the program with the following arguments:' + '\n'.join(sys.argv) + '\n Starting...')
-    _automata_array = sys.argv
+    automata_array = sys.argv
 
 # load notation into automata structures
-_automata_list = load_automata(''.join(_automata_array))
+automata_list = load_automata(automata_array)
 # generate golang code from automata structures
-_golang_line = generate_go_lang(_automata_list,_automata_array)
+golang_line = generate_go_lang(automata_list)
 # write golang code to file
-write_golang(_golang_line)
+write_golang(golang_line)
 
 
 # other automata examples from the 2018 CTA refinement paper:
